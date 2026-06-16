@@ -1,0 +1,9 @@
+## Machine Coding Practice
+
+A collection of my practice machine coding round questions - small UI components and features.
+
+### Questions
+
+| Name | Tools | Question | Demo |
+|------|-------|----------|------|
+| [Toast Notifications](./toast) | React | Build a toast notification system with success, info, warning, and error types. Toasts should auto-dismiss after 5 seconds and be closable via an × button. | [Recording](./assets/Screen%20Recording%202026-06-16%20155853.mp4) |

@@ -1,0 +1,65 @@
+.toast-container {
+  position: fixed; /* fixed sticks toast to the screen, relative keeps it near its normal position */
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.toast {
+  background-color: green;
+  width: 12rem;
+  padding: 0.5rem;
+  color: white;
+  border-radius: 0.5rem;
+  position: relative;
+  margin: 0.5rem;
+  /* 
+    Runs the "slide" animation:
+    - duration: 1 second
+    - runs only once
+    - moves the toast from right side into its original position
+  */
+  animation: slide 1s 1;
+
+  span {
+    position: absolute;
+    right: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+}
+
+/*
+  Animation timeline:
+  0%   -> starting position
+          translateX(100%) moves the toast right by its own width
+
+  100% -> ending position
+          translateX(0%) brings it back to its normal position
+
+  Result: toast slides in from right to left
+*/
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  ,
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.success {
+  background-color: green;
+}
+
+.error {
+  background-color: red;
+}
+
+.warning {
+  background-color: orange;
+}
+
+.info {
+  background-color: blue;
+}
