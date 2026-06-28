@@ -6,4 +6,4 @@ A collection of my practice machine coding round questions - small UI components
 
 | Name | Tools | Question | Demo |
 |------|-------|----------|------|
-| [Toast](./toast) | React | Build a toast notification system with success, info, warning, and error types. Toasts should auto-dismiss after 5 seconds and be closable via an × button. | [Recording](./assets/toasts.mp4) |
+| [Toast](./toast) | React | Build a toast notification system with success, info, warning, and error types. Toasts should auto-dismiss after some time and be closable via an × button. | [Recording](./assets/toasts.mp4) |
