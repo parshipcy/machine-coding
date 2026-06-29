@@ -129,7 +129,9 @@ React component names must begin with an uppercase letter.
 
 ❌ React treats this as an HTML element.
 
-## 1. Arrow Function (Most common)
+---
+
+### 1. Arrow Function (Most common)
 
 ```jsx
 const handleClose = () => {
@@ -143,7 +145,7 @@ const handleClose = () => {
 
 ---
 
-## 2. Function Declaration
+### 2. Function Declaration
 
 ```jsx
 function handleClose() {
@@ -157,7 +159,7 @@ function handleClose() {
 
 ---
 
-## 3. Function Expression
+### 3. Function Expression
 
 ```jsx
 const handleClose = function () {
@@ -169,7 +171,7 @@ const handleClose = function () {
 * Has its own `this`.
 * Works the same as the arrow function here, but is used less often in React.
 
-## In your example
+### In your example
 
 All three behave the same because you're simply calling `setShow(false)`:
 
