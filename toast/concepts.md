@@ -1,50 +1,133 @@
-# JavaScript Modules: Default Export vs Named Export
+## JavaScript Modules: Default Export vs Named Export
 
-* JavaScript modules use **`export`** to make code available to other files and **`import`** to use that code.
-* There are **two types of exports**:
+JavaScript modules allow you to share code between files.
 
-  * **Default export**: Used when a file exports one main value. Import it **without `{}`**, and you can choose any variable name.
-  * **Named export**: Used when a file exports multiple values. Import it **with `{}`**, and the name must match the exported name (unless renamed with `as`).
+* **`export`** makes code available to other files.
+* **`import`** brings exported code into the current file.
 
-## Example
+There are two types of exports.
+
+### 1. Default Export
+
+Use a **default export** when a file has **one primary value** to export.
 
 ```jsx
-// ToastContainer.js
+// ToastContainer.jsx
 export default function ToastContainer() {
   return <div>Hi</div>;
 }
 ```
 
-```jsx
-// App.js
-import ToastContainer from "./Components/ToastContainer";
+Import it **without `{}`**:
 
-export default function App() {
-  return <ToastContainer />;
-}
+```jsx
+import ToastContainer from "./Components/ToastContainer";
 ```
 
-You can even rename the default import:
+The imported name is your choice:
 
 ```jsx
 import MyToast from "./Components/ToastContainer";
-
-export default function App() {
-  return <MyToast />;
-}
 ```
 
-**Note:** When using a React component, its name **must start with an uppercase letter**. Writing `<myToast />` or `<toastContainer />` makes React treat it as an HTML element instead of a custom component.
+Both imports refer to the same default export.
 
 ---
 
-## Here's the difference between the three approaches:
+### 2. Named Export
 
-| Syntax                              | Hoisted? | `this`         | Common in React |
-| ----------------------------------- | -------- | -------------- | --------------- |
-| `const handleClose = () => {}`      | ❌ No    | Lexical `this` | ✅ Yes          |
-| `function handleClose() {}`         | ✅ Yes   | Own `this`     | ✅ Yes          |
-| `const handleClose = function() {}` | ❌ No    | Own `this`     | Less common     |
+Use **named exports** when a file exports multiple values.
+
+```jsx
+// utils.js
+export function add(a, b) {
+  return a + b;
+}
+
+export function subtract(a, b) {
+  return a - b;
+}
+```
+
+Import them **with `{}`**:
+
+```jsx
+import { add, subtract } from "./utils";
+```
+
+The imported name must match the exported name.
+
+To rename a named export:
+
+```jsx
+import { add as sum } from "./utils";
+```
+
+---
+
+### Default Export vs Named Export
+
+| Feature                            | Default Export                   | Named Export                          |
+| ---------------------------------- | -------------------------------- | ------------------------------------- |
+| Syntax                             | `export default`                 | `export`                              |
+| Number of exports per file         | Only one                         | Multiple                              |
+| Import syntax                      | `import Component from "./file"` | `import { Component } from "./file"`  |
+| Uses `{}` while importing          | ❌ No                            | ✅ Yes                                 |
+| Import name must match export name | ❌ No                            | ✅ Yes                                 |
+| Can rename while importing         | ✅ Yes                           | ✅ Yes (`as`)                          |
+| Typical use                        | Main component or value          | Utility functions, constants, helpers |
+
+### Example
+
+**Default Export**
+
+```jsx
+// Button.jsx
+export default function Button() {}
+```
+
+```jsx
+import Button from "./Button";
+import MyButton from "./Button"; // Also valid
+```
+
+---
+
+**Named Export**
+
+```jsx
+// utils.js
+export const add = () => {};
+export const subtract = () => {};
+```
+
+```jsx
+import { add, subtract } from "./utils";
+```
+
+Renaming a named export:
+
+```jsx
+import { add as sum } from "./utils";
+```
+
+---
+
+#### Note
+
+React component names must begin with an uppercase letter.
+
+```jsx
+<MyToast />
+```
+
+✅ React treats this as a custom component.
+
+```jsx
+<myToast />
+```
+
+❌ React treats this as an HTML element.
 
 ## 1. Arrow Function (Most common)
 
