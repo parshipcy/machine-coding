@@ -32,8 +32,6 @@ import MyToast from "./Components/ToastContainer";
 
 Both imports refer to the same default export.
 
----
-
 ### 2. Named Export
 
 Use **named exports** when a file exports multiple values.
@@ -63,8 +61,6 @@ To rename a named export:
 import { add as sum } from "./utils";
 ```
 
----
-
 ### Default Export vs Named Export
 
 | Feature                            | Default Export                   | Named Export                          |
@@ -91,8 +87,6 @@ import Button from "./Button";
 import MyButton from "./Button"; // Also valid
 ```
 
----
-
 **Named Export**
 
 ```jsx
@@ -110,8 +104,6 @@ Renaming a named export:
 ```jsx
 import { add as sum } from "./utils";
 ```
-
----
 
 #### Note
 
@@ -143,8 +135,6 @@ const handleClose = () => {
 * Doesn't have its own `this`.
 * Preferred in modern React.
 
----
-
 ### 2. Function Declaration
 
 ```jsx
@@ -156,8 +146,6 @@ function handleClose() {
 * Hoisted, so it can be called before it's defined.
 * Has its own `this` (when used as a method).
 * Also commonly used in React.
-
----
 
 ### 3. Function Expression
 
@@ -192,8 +180,6 @@ const handleClose = function () {
 ```
 
 The main differences are **hoisting** and **how `this` is handled**. In React function components, `this` is typically not used, so arrow functions are the most common choice.
-
----
 
 ```
 USER CLICK BUTTON
