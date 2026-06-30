@@ -1,6 +1,4 @@
-## Machine Coding Practice
-
-A collection of my practice machine coding round questions - small UI components and features, built live in [CodeSandbox](https://codesandbox.io/).
+Small UI components and features, built live in [CodeSandbox](https://codesandbox.io/).
 
 ### Questions
 
